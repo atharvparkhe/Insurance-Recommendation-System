@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from django.contrib.auth import authenticate
 from rest_framework.response import Response
 from rest_framework import status
+from threading import Thread
 from .serializers import *
 from .threads import *
 from .models import *
@@ -29,6 +30,7 @@ def signUp(request):
     except Exception as e:
         return Response({"error":str(e), "message":"Something went wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
 @api_view(["POST"])
 def logIn(request):
     try:
@@ -49,6 +51,7 @@ def logIn(request):
     except Exception as e:
         return Response({"error":str(e), "message":"Something went wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
 @api_view(["POST"])
 def forgot(request):
     try:
@@ -65,6 +68,7 @@ def forgot(request):
         return Response({"error":serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
     except Exception as e:
         return Response({"error":str(e), "message":"Something went wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 @api_view(["POST"])
 def reset(request):
@@ -140,12 +144,43 @@ def checkData(request):
         return Response({"error":str(e), "message":"Something went wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-@api_view(["POST"])
+@api_view(["GET"])
 def analyseData(request):
     try:
+        context = {}
         authentication_classes = [JWTAuthentication]
         permission_classes = [IsAuthenticated]
-        user = UserModel.objects.get(email=request.user.email)
+        user_data_obj = UserData.objects.get(user=UserModel.objects.get(email=request.user.email))
+        thread_obj_1 = GlucoseDataThread(user_data_obj)
+        thread_obj_1.start()
+        thread_obj_2 = CardioDataThread(user_data_obj)
+        thread_obj_2.start()
+        thread_obj_3 = ECGDataThread(user_data_obj)
+        thread_obj_3.start()
+        return Response({"messgae":"context"}, status=status.HTTP_200_OK)
     except Exception as e:
         return Response({"error":str(e), "message":"Something went wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
+@api_view(["GET"])
+def fetchResults(request):
+    try:
+        context = {}
+        authentication_classes = [JWTAuthentication]
+        permission_classes = [IsAuthenticated]
+        user = UserModel.objects.get(email=request.user.email)
+        user_data_obj = UserData.objects.get(user=user)
+        if (not user_data_obj.ecg) or (not user_data_obj.glucose) or (user_data_obj.cardio):
+            return Response({"message":"Values not yet updated. Try again later"}, status=status.HTTP_406_NOT_ACCEPTABLE)
+        context["ecg"] = user_data_obj.ecg
+        context["glucose"] = user_data_obj.glucose
+        context["cardio"] = user_data_obj.cardio
+        context["gender"] = user.gender
+        context["dob"] = user.dob
+        context["height"] = user.height
+        context["weight"] = user.weight
+        context["smoking"] = user.smoking
+        context["alcoholic"] = user.alcoholic
+        return Response({"message":context}, status=status.HTTP_200_OK)
+    except Exception as e:
+        return Response({"error":str(e), "message":"Something went wrong"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

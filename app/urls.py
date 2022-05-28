@@ -11,4 +11,5 @@ urlpatterns = [
 	path('upload-data/', views.getData, name="upload-data"),
 	path('check-data/', views.checkData, name="check-data"),
 	path('analyse-data/', views.analyseData, name="analyse-data"),
+	path('fetch-results/', views.fetchResults, name="fetch-results"),
 ]

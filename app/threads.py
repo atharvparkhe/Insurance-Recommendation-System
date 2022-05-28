@@ -1,6 +1,9 @@
 import threading, random
 from django.conf import settings
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import send_mail
+from models.cardio import useCardio
+from models.ecg import useECG
+from models.glucose import useGlucose
 
 class ForgotEmail(threading.Thread):
     def __init__(self, user_obj):
@@ -19,3 +22,41 @@ class ForgotEmail(threading.Thread):
             print("email sending")
         except Exception as e:
             print(e)
+
+
+
+class GlucoseDataThread(threading.Thread):
+    def __init__(self, user_data):
+        self.user_data = user_data
+        threading.Thread.__init__(self)
+    def run(self):
+        try:
+            self.user_data.glucose = useGlucose()
+            self.save()
+        except Exception as e:
+            print(e)
+
+
+class CardioDataThread(threading.Thread):
+    def __init__(self, user_data):
+        self.user_data = user_data
+        threading.Thread.__init__(self)
+    def run(self):
+        try:
+            self.user_data.cardio = useGlucose()
+            self.save()
+        except Exception as e:
+            print(e)
+
+
+class ECGDataThread(threading.Thread):
+    def __init__(self, user_data):
+        self.user_data = user_data
+        threading.Thread.__init__(self)
+    def run(self):
+        try:
+            self.user_data.ecg = useGlucose()
+            self.save()
+        except Exception as e:
+            print(e)
+

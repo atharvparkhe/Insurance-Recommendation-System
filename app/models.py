@@ -16,9 +16,8 @@ class UserModel(BaseUser):
 
 class UserData(BaseModel):
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name="user_data")
-    ecg = models.BooleanField(null=True, blank=True)
-    bps = models.IntegerField(null=True, blank=True)
-    bpd = models.IntegerField(null=True, blank=True)
+    ecg = models.FloatField(null=True, blank=True)
+    glucose = models.IntegerField(null=True, blank=True)
     cardio = models.BooleanField(null=True, blank=True)
     def __str__(self):
         return self.user.name
