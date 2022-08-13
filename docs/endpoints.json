@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "21153ecd-daa1-462b-b810-c2fa45df100b",
+		"name": "Technix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16397653"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Atharva\",\n    \"email\":\"patharv777@gmail.com\",\n    \"password\":\"Pass@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/signup/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"patharv777@gmail.com\",\n    \"password\":\"Pass@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"patharv777@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/forgot/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"forgot",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"otp\":938653,\n    \"pw\":\"Pass@321\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reset/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reset",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main",
+			"item": [
+				{
+					"name": "Health",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODg3NTQ3LCJpYXQiOjE2NTM3MTQ3NDcsImp0aSI6Ijc0NGU2NDQ3ODE2MTQxY2Q4ZGI0ZmEwMjE4NjA1MmUxIiwidXNlcl9pZCI6ImY1NzE2MmIyLTUxOGUtNGM1Zi1hMTc4LTZhZDRkMjI5NGVmOCJ9.7e4QlijIP-rcsceP9ZrtTLbgxhUDYc0areT2RQ0j14U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"height\": 21.5,\n    \"weight\": 40,\n    \"smoking\": true,\n    \"alcoholic\": false,\n    \"dob\": \"2001-01-10\",\n    \"gender\": \"male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/health/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"health",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Analyse Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODg3NTQ3LCJpYXQiOjE2NTM3MTQ3NDcsImp0aSI6Ijc0NGU2NDQ3ODE2MTQxY2Q4ZGI0ZmEwMjE4NjA1MmUxIiwidXNlcl9pZCI6ImY1NzE2MmIyLTUxOGUtNGM1Zi1hMTc4LTZhZDRkMjI5NGVmOCJ9.7e4QlijIP-rcsceP9ZrtTLbgxhUDYc0areT2RQ0j14U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/analyse-data/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"analyse-data",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Results",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODg5MDI5LCJpYXQiOjE2NTM3MTYyMjksImp0aSI6ImY5OWFmYzZjOTA0NDQzOTliNzcxN2U2NjFlNWUyNjk4IiwidXNlcl9pZCI6ImY1NzE2MmIyLTUxOGUtNGM1Zi1hMTc4LTZhZDRkMjI5NGVmOCJ9.17Pu6VNCb1CU9Yr0FfO0_-rByJ4UZRov9Fy1dSFHvZA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/fetch-results/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fetch-results",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzODM0NDQ0LCJpYXQiOjE2NTM2NjE2NDQsImp0aSI6IjVhN2M3NDczN2M4MDQ4Mjk5ODcyYjI0Zjg3MzI4OGIzIiwidXNlcl9pZCI6ImEzYTUyNTJlLTUyOTItNDZkZS04NWZlLTZlOTg3Y2FiNTdhMCJ9.at8H848uJqNnxFvvAd07FJ2DYCjqRJP-xHWZd4t1Eek",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/check-data/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"check-data",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
