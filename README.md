@@ -20,7 +20,6 @@ So basically *suggesting the best insurance policy based on their wearables data
 - [Environment Variables](#-environment-variables)
 - [Run Locally](#-run-locally)
 - [Documentation](#-documentation)
-- [Screen-Shots](#-screen-shots)
 - [Author](#-author)
 
 
@@ -41,7 +40,7 @@ Me along with [Vivek Silimkhan](https://www.linkedin.com/in/vivek-silimkhan/) an
 
 ### 📃 Problem Statement
 
-![Problem Statement](PROBLEM_STATEMENT.png)
+![Problem Statement](PROBLEM_STATEMENT.jpeg)
 
 
 ### 📋 Features
@@ -66,16 +65,14 @@ Me along with [Vivek Silimkhan](https://www.linkedin.com/in/vivek-silimkhan/) an
 - **`DATABASE`** : SQLite3
 
 - **`FRONTEND`** : 
-    - **Admin Panel :** React JS *(Javascript)*
-    - **Customer Application :** Android *(Java)*
+    - **Customer Application :** Flutter *(Dart)*
 
 
 ### 🛠 API Reference
 
-**Postman Endpoints** : https://www.getpostman.com/collections/66bf66e50ebe0f8f60c3
+**Postman Endpoints** : https://www.getpostman.com/collections/e72ddb4279b982ed4832
 
-![Endpoints](docs/endpoints-customer.png)
-![Endpoints](docs/endpoints-seller.png)
+![Endpoints](docs/endpoints.png)
 
 **API Endpoints JSON file** (for importing into thunderclient / postman) is available in the docs folder or click [here](docs/endpoints.json)
 
@@ -158,28 +155,11 @@ The docs folder contain all the project documentations and screenshots of the pr
 
 - **Frontend Section :**
     - **Code :** https://github.com/azverndias09/HackathonFrontEnd2022
-    - **Author :** Azvern Dias - [GitHub](https://github.com/azverndias09), [LinkedIn](https://www.linkedin.com/in/azverndias0912/)
+    - **Author :** ***Azvern Dias*** - [GitHub](https://github.com/azverndias09), [LinkedIn](https://www.linkedin.com/in/azverndias0912/)
 
 - **ML Models :**
     - **Code :** https://github.com/spacegroot/HealthWear
-    - **Author :** Azvern Dias - [GitHub](https://github.com/spacegroot), [LinkedIn](https://www.linkedin.com/in/vivek-silimkhan/)
-
-
-### 🌄 Screen-Shots
-
-- **Authentication**
-
-![Signup](docs/project/account/signup.png)
-![Login](docs/project/account/login.png)
-![Forgot](docs/project/account/forgot.png)
-![Forgot](docs/project/account/reset.png)
-
-- **Main**
-
-![All Restaurants](docs/project/main/all-restaurants.png)
-![Single Restaurant](docs/project/main/single-restaurant.png)
-![Book Seat](docs/project/main/book-seat.png)
-![Past Bookings](docs/project/main/past-bookings.png)
+    - **Author :** ***Vivel Silimkhan*** - [GitHub](https://github.com/spacegroot), [LinkedIn](https://www.linkedin.com/in/vivek-silimkhan/)
 
 
 ### 🙋🏻‍♂️ Author
